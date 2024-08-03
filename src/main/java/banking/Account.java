@@ -15,9 +15,27 @@ public abstract class Account {
 	private Long accountNumber;
 	private int pin;
 	private double balance;
+	private Company company;
+
+	protected Account(){
+
+	}
 
 	protected Account(AccountHolder accountHolder, Long accountNumber, int pin, double startingDeposit) {
 		// complete the constructor
+
+		this.accountHolder = accountHolder;
+		this.accountNumber = accountNumber;
+		this.pin = pin;
+		this.balance = startingDeposit;
+
+	}
+
+	protected Account (Company company, Long accountNumber, int pin, double startingDeposit){
+		this.company = company;
+		this.accountNumber = accountNumber;
+		this.pin = pin;
+		this.balance = startingDeposit;
 	}
 
 	public AccountHolder getAccountHolder() {
@@ -32,7 +50,7 @@ public abstract class Account {
 
 	public double getBalance() {
 		// complete the function
-        return -1;
+        return this.balance;
 	}
 
 	public Long getAccountNumber() {
@@ -42,6 +60,7 @@ public abstract class Account {
 
 	public void creditAccount(double amount) {
 		// complete the function
+		this.balance += amount;
 	}
 
 	public boolean debitAccount(double amount) {

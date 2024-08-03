@@ -9,6 +9,6 @@ public class Company  {
 
 	public String getCompanyName() {
 		// complete the function
-        return null;
+        return this.companyName;
 	}
 }
