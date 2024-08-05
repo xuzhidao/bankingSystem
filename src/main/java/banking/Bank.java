@@ -26,10 +26,13 @@ public class Bank implements BankInterface {
 
 	}
 
-	private Account getAccount(Long accountNumber) {
+	public Account getAccount(Long accountNumber) {
 		// complete the function
 
-        return this.accounts.get(accountNumber);
+		if (accounts == null || accounts.size() == 0) return null;
+
+		else
+			return this.accounts.get(accountNumber);
 	}
 
 	public Long openCommercialAccount(Company company, int pin, double startingDeposit) {
@@ -92,6 +95,11 @@ public class Bank implements BankInterface {
 		// complete the function
 
 		double balanceAmount = this.getBalance(accountNumber);
+
+		Account acc = (BankAccount) accounts.get(accountNumber);
+		if(acc != null)
+			acc.debitAccount(amount);
+
         return balanceAmount > amount;
 
 	}

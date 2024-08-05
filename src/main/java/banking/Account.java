@@ -15,7 +15,7 @@ public abstract class Account {
 	private Long accountNumber;
 	private int pin;
 	private double balance;
-	private Company company;
+	protected Company company;
 
 	protected Account(){
 
@@ -45,7 +45,7 @@ public abstract class Account {
 
 	public boolean validatePin(int attemptedPin) {
 		// complete the function
-        return true;
+        return this.pin == attemptedPin ;
 	}
 
 	public double getBalance() {
@@ -65,6 +65,13 @@ public abstract class Account {
 
 	public boolean debitAccount(double amount) {
 		// complete the function
-        return true;
+
+		double old_balance = this.balance;
+		if (old_balance >= amount) {
+			this.balance -= amount;
+			return true;
+		} else
+			return false;
+
 	}
 }
