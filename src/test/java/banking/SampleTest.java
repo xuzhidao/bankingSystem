@@ -134,7 +134,7 @@ public class SampleTest {
 		double amount = 23452.43;
 		transaction1.credit(amount);
 		assertEquals(beforeDeposit1 + amount, transaction1.getBalance(), 0);
-//		assertTrue("Debit was unsuccessful.", transaction1.debit(amount));
+		assertTrue("Debit was unsuccessful.", transaction1.debit(amount));
 		assertFalse("This transaction should have overdrawn the account.", transaction1.debit(amount));
 		assertEquals(beforeDeposit1, transaction1.getBalance(), 0);
 		assertEquals(transaction1.getBalance(), bank.getBalance(ameliaPond), 0);

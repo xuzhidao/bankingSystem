@@ -100,7 +100,7 @@ public class Bank implements BankInterface {
 		if(acc != null)
 			acc.debitAccount(amount);
 
-        return balanceAmount > amount;
+        return balanceAmount >= amount;
 
 	}
 }
